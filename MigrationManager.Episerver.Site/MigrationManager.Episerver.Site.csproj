@@ -294,6 +294,9 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
     <Compile Include="Controllers\VideoFileController.cs" />
+    <Compile Include="Features\Migrations\Controllers\MigrationController.cs" />
+    <Compile Include="Features\Migrations\Initialization\MigrationManagerRouteInitialization.cs" />
+    <Compile Include="Features\Migrations\Models\MigrationViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -413,6 +416,7 @@
     <Content Include="modules\_protected\CMS\CMS.zip" />
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\web.config" />
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\EPiServer.Cms.TinyMce.zip" />
+    <Content Include="Features\Migrations\Views\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\_viewstart.cshtml" />
     <Content Include="Views\VideoFile\Index.cshtml" />

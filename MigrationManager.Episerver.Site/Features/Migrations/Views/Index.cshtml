@@ -1,0 +1,98 @@
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@inherits System.Web.Mvc.WebViewPage<MigrationManager.Episerver.Site.Features.Migrations.Models.MigrationViewModel>
+
+@{
+    Layout = null;
+}
+<style type="text/css">
+    table { 
+        border-collapse: collapse;
+        font-size: 1.1em;
+    }
+
+    table, th, td {
+        border: 1px solid #ccc;
+    }
+
+    td, th {
+        padding: 4px;
+        color: #000;
+        text-align: center;
+    }
+    tr.missing td {
+        background: #ddd;
+        color: #999;
+    }
+
+    tr.hasbeenrunned td {
+        background: green;
+    }
+
+    tr.notrunned td {
+        background: yellow;
+    }
+
+</style>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Migration manager</title>
+</head>
+<body>
+    <div>
+        <h1>Migration manager</h1>
+        @using (Html.BeginForm("RunAll", "Migration", FormMethod.Post))
+        {
+            <div class="epi-buttonDefault">
+                <span class="epi-cmsButton">
+                    <button type="submit" class="epi-cmsbutton-text epi-cmsbutton-tools epi-cmsbutton-warning">Run all migrations</button>
+                </span>
+            </div>
+        }
+
+        <table style="width:100%">
+            <tr>
+                <th>Order</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Executed date</th>
+                <th>Up/down</th>
+            </tr>
+            @foreach (var migration in Model.Migrations)
+            {
+            <tr class="@string.Format(migration.HasBeenRunned ? "hasbeenrunned":"notrunned")">
+                <td>@migration.Order</td>
+                <td>@migration.Name</td>
+                <td>@migration.Description</td>
+                @if (migration.HasBeenRunned)
+                {
+                    <td>@migration.ExecutedDateTime.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>
+                        @using (Html.BeginForm("Down", "Migration"))
+                        {
+                            @Html.Hidden("id", migration.MigrationId)
+                            <button type="submit">Down</button>
+                        }
+                    </td>
+                }
+                else
+                {
+                    <td>Not runned</td>
+                    <td>
+                        @using (Html.BeginForm("Up", "Migration"))
+                        {
+                            @Html.Hidden("id", migration.MigrationId)
+                            <button type="submit">Up</button>
+                        }
+                    </td>
+                }
+            </tr>
+            }
+            
+        </table> 
+
+    </div>
+</body>
+</html>
