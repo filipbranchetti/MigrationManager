@@ -48,7 +48,7 @@
     <Compile Include="Finder\MigrationFinder.cs" />
     <Compile Include="Migration\IMigrationStep.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\IProcessedRepository.cs" />
+    <Compile Include="Repository\IMigratedRepository.cs" />
     <Compile Include="Repository\Models\DiscoveredMigration.cs" />
     <Compile Include="Repository\Models\IDiscoveredMigration.cs" />
     <Compile Include="Services\MigrationService.cs" />

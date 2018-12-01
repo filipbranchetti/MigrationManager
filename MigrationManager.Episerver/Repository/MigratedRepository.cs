@@ -10,7 +10,7 @@ namespace MigrationManager.Episerver.Repository
     using MigrationManager.Repository.Models;
     using Store;
 
-    public class ProcessedRepository : IProcessedRepository
+    public class MigratedRepository : IMigratedRepository
     {
         private static DynamicDataStore MigrationStore => typeof(MigrationData).GetStore();
 

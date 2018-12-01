@@ -12,13 +12,13 @@
     public class MigrationService
     {
         private readonly IMigrationFinder _finder;
-        private readonly IProcessedRepository _processedRepo;
+        private readonly IMigratedRepository _migratedRepo;
 
         public MigrationService(
-            IProcessedRepository processedRepo,
+            IMigratedRepository migratedRepo,
             IMigrationFinder finder)
         {
-            _processedRepo = processedRepo;
+            _migratedRepo = migratedRepo;
             _finder = finder;
         }
 
@@ -30,7 +30,7 @@
         public IList<IDiscoveredMigration> GetAllMigrationSteps()
         {
             var list = new List<IDiscoveredMigration>();
-            var runnedMigrations = _processedRepo.GetAll();
+            var runnedMigrations = _migratedRepo.GetAll();
             foreach (var migrationStep in _finder.FindAllMigrationSteps())
             {
                 var exist = runnedMigrations.FirstOrDefault(x => x.MigrationId == migrationStep.Id);
@@ -49,18 +49,18 @@
 
         public void Up(IMigrationStep migrationStep)
         {
-            if (!_processedRepo.HasBeenRun(migrationStep))
+            if (!_migratedRepo.HasBeenRun(migrationStep))
             {
                 migrationStep.Up();
-                _processedRepo.MarkAsRunned(migrationStep);
+                _migratedRepo.MarkAsRunned(migrationStep);
             }
         }
         public void Down(IMigrationStep migrationStep)
         {
-            if (_processedRepo.HasBeenRun(migrationStep))
+            if (_migratedRepo.HasBeenRun(migrationStep))
             {
                 migrationStep.Down();
-                _processedRepo.MarkAsNotRunned(migrationStep);
+                _migratedRepo.MarkAsNotRunned(migrationStep);
             }
         }
         public void UpAll()
@@ -81,7 +81,7 @@
 
         public bool HasBeenRunned(IMigrationStep migrationStep)
         {
-            return _processedRepo.HasBeenRun(migrationStep);
+            return _migratedRepo.HasBeenRun(migrationStep);
         }
     }
 }

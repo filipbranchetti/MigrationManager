@@ -4,7 +4,7 @@ namespace MigrationManager.Repository
     using Migration;
     using Models;
 
-    public interface IProcessedRepository
+    public interface IMigratedRepository
     {
         IList<IDiscoveredMigration> GetAll();
         bool HasBeenRun(IMigrationStep migrationStep);

@@ -92,7 +92,7 @@
     <Compile Include="Extensions\MigrationExtensions.cs" />
     <Compile Include="Initialization\DependencyResolverInitialization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\ProcessedRepository.cs" />
+    <Compile Include="Repository\MigratedRepository.cs" />
     <Compile Include="Repository\Store\MigrationData.cs" />
   </ItemGroup>
   <ItemGroup>

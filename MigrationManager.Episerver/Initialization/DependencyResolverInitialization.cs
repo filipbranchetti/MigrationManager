@@ -21,7 +21,7 @@ namespace MigrationManager.Episerver.Initialization
                 context.Services
                     .AddSingleton<IMigrationFinder, MigrationFinder>()
                     .AddTransient<MigrationService, MigrationService>()
-                    .AddTransient<IProcessedRepository, ProcessedRepository>();
+                    .AddTransient<IMigratedRepository, MigratedRepository>();
             };
         }
 
