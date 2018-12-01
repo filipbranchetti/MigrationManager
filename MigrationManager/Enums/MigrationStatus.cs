@@ -3,6 +3,7 @@
     public enum MigrationStatus
     {
         HasBeenRunned = 1,
-        HasNotBenRunned = 10,
+        HasNotBeenRunned = 10,
+        IsMissing = 20,
     }
 }

@@ -1,5 +1,6 @@
 ﻿@using System.Web.Mvc
 @using System.Web.Mvc.Html
+@using MigrationManager.Enums
 @inherits System.Web.Mvc.WebViewPage<MigrationManager.Episerver.Site.Features.Migrations.Models.MigrationViewModel>
 
 @{
@@ -20,16 +21,16 @@
         color: #000;
         text-align: center;
     }
-    tr.missing td {
+    tr.@MigrationStatus.IsMissing.ToString() td {
         background: #ddd;
         color: #999;
     }
 
-    tr.hasbeenrunned td {
+    tr.@MigrationStatus.HasBeenRunned.ToString() td {
         background: green;
     }
 
-    tr.notrunned td {
+    tr.@MigrationStatus.HasNotBeenRunned.ToString() td {
         background: yellow;
     }
 
@@ -62,11 +63,11 @@
             </tr>
             @foreach (var migration in Model.Migrations)
             {
-            <tr class="@string.Format(migration.HasBeenRunned ? "hasbeenrunned":"notrunned")">
+            <tr class="@migration.Status.ToString()">
                 <td>@migration.Order</td>
                 <td>@migration.Name</td>
                 <td>@migration.Description</td>
-                @if (migration.HasBeenRunned)
+                @if (migration.Status == MigrationStatus.HasBeenRunned)
                 {
                     <td>@migration.ExecutedDateTime.ToString("yyyy-MM-dd HH:mm")</td>
                     <td>

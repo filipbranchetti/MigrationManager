@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using Enums;
     using Extensions;
     using Finder;
     using Migration;
@@ -43,6 +44,12 @@
                     list.Add(migrationStep.ConvertToRegisteredMigration());
                 }
                 
+            }
+            var missingMigrations = runnedMigrations.Except(list).ToList();
+            foreach (var missingMigration in missingMigrations)
+            {
+                missingMigration.Status = MigrationStatus.IsMissing;
+                list.Add(missingMigration);
             }
             return list;
         }

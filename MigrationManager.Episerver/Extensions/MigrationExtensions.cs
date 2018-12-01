@@ -1,5 +1,6 @@
 ﻿namespace MigrationManager.Episerver.Extensions
 {
+    using Enums;
     using Migration;
     using MigrationManager.Repository.Models;
     using Repository.Store;
@@ -15,7 +16,7 @@
                 Order = migrationData.Order,
                 Description = migrationData.Description,
                 ExecutedDateTime = migrationData.ExecutedDateTime,
-                HasBeenRunned = true
+                Status = MigrationStatus.HasBeenRunned
             };
         }
 

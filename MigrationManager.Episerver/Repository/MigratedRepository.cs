@@ -3,6 +3,7 @@ namespace MigrationManager.Episerver.Repository
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using Enums;
     using EPiServer.Data.Dynamic;
     using Extensions;
     using Migration;
@@ -17,7 +18,7 @@ namespace MigrationManager.Episerver.Repository
         public bool HasBeenRun(IMigrationStep migrationStep)
         {
             var items = GetAll();
-            return items.Any(x => x.MigrationId == migrationStep.Id && x.HasBeenRunned);
+            return items.Any(x => x.MigrationId == migrationStep.Id && MigrationStatus.HasBeenRunned.Equals(x.Status));
         }
 
         public void MarkAsRunned(IMigrationStep migrationStep)
