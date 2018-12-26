@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>MigrationManager</title>
+    <authors>Filip Branchetti</authors>
+    <owners>Filip Branchetti</owners>
+    <licenseUrl>https://github.com/filipbranchetti/MigrationManager/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/filipbranchetti/MigrationManager</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>MigrationManager core package</description>
+    <releaseNotes>Added MigrationManager.</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>MigrationManager</tags>
+  </metadata>
+</package>

@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MigrationManager")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Migration Manager")]
+[assembly: AssemblyDescription("Core package for migration manager")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Filip Branchetti")]
 [assembly: AssemblyProduct("MigrationManager")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
