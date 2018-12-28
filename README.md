@@ -1,4 +1,8 @@
 ## What is the MigrationManager project?
+```
+PM> Install-Package MigrationManager -Version 1.0.0
+```
+
 MigrationManager project is an service for handling migrations.
 
 Giving you main following features:
